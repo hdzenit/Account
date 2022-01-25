@@ -3,6 +3,29 @@ let allLinks = document.querySelectorAll('.nav-link');
 let accountsView = document.querySelector('#accounts-view');
 let addAccountView = document.querySelector('#add-account-view');
 let views = document.querySelectorAll('.view');
+let idInput = document.querySelector('[placeholder="id"]');
+let nameInput = document.querySelector('[placeholder="name"]');
+let lastNameInput = document.querySelector('[placeholder="lastname"]');
+let emailInput = document.querySelector('[placeholder="email"]');
+let phoneInput = document.querySelector('[placeholder="phone"]');
+let saveBtn = document.querySelector('#save');
+
+saveBtn.addEventListener('click',saveAccount);
+
+function saveAccount(){
+    const newAccount = {
+        id : idInput.value,
+        name : nameInput.value,
+        lastname : lastNameInput.value,
+        email : emailInput.value,
+        phone : phoneInput.value
+    }
+
+    //ovdje sam stao
+    db.push(newAccount);
+    createAccountsTable();
+    showView();
+}
 
 for (let i = 0; i < allLinks.length; i++) {
     allLinks[i].addEventListener('click', showView);
