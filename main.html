@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <!-- CSS only -->
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a href="" class="navbar-brand">Account</a>
         <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a href="" class="nav-link">Accounts</a></li>
-        <li class="nav-item"><a href="" class="nav-link">Add Account</a></li>
+        <li class="nav-item"><a href="accounts-view" class="nav-link">Accounts</a></li>
+        <li class="nav-item"><a href="add-account-view" class="nav-link">Add Account</a></li>
     </ul>
     </nav>
     <div class="container-fluid"></div>
     <!--Accounts View-->
-    <div class="row">
+    <div class="row view" id="accounts-view">
         <div class="col-10 off-set-1">
             <h2 class="display-4 m-4">Accounts</h2>
-            <div class="row col-8 offset-2">
+            <div class="row">
+                <div class="col-8 offset-2">
                 <table class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
@@ -33,25 +35,31 @@
                         </tr>
                     </thead>
                     <tbody id="accounts-table-body">
-                    <!--   <tr>
-                            <td>1</td>
-                            <td>danilo</td>
-                            <td>vesovic</td>
-                            <td>danilo@gmail.com</td>
-                            <td>11-11-11-111</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>mirko</td>
-                            <td>mirkovic</td>
-                            <td>mirko@gmail.com</td>
-                            <td>22-22-22-222</td>
-                        </tr>-->
+              
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    </div>
+        <!--Accounts view end-->
+        <!--Add Accounts view -->
+        <div class="row view" id="add-account-view">
+            <div class="col-10 off-set-1">
+                <h2 class="display-4 m-4">Add Accounts</h2>
+                <div class="row"> 
+                    <div class="col-8 offset-2">
+                    <input type="text" class="form-control" placeholder="id"><br>
+                    <input type="text" class="form-control" placeholder="name"><br>
+                    <input type="text" class="form-control" placeholder="lastname"><br>
+                    <input type="text" class="form-control" placeholder="email"><br>
+                    <input type="text" class="form-control" placeholder="phone"><br>
+                    <button class="form-control btn btn-info">Save</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <!--Add Account View end-->
     <script src="db.js"></script>
     <script src="main.js"></script>
 </body>
