@@ -9,6 +9,11 @@ let lastNameInput = document.querySelector('[placeholder="lastname"]');
 let emailInput = document.querySelector('[placeholder="email"]');
 let phoneInput = document.querySelector('[placeholder="phone"]');
 let saveBtn = document.querySelector('#save');
+let eId = document.querySelector('.eId');
+let eName = document.querySelector('.eName');
+let eLastName = document.querySelector('.eLastName');
+let eEmail = document.querySelector('.eEmail');
+let ePhone = document.querySelector('.ePhone');
 
 saveBtn.addEventListener('click',saveAccount);
 
@@ -80,9 +85,12 @@ function createAccountsTable(){
 
 function deleteAccount(){
     let id = this.getAttribute('data-id');
-    console.log(id);
+    db.splice(id, 1);
+    createAccountsTable();
+    showView("#accounts-view");
 }
 
 function editAccount(){
-
+let id = this.getAttribute('data-id');
+let selectedAccount = db[id];
 }
