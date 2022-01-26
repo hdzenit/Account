@@ -1,3 +1,5 @@
+window.addEventListener('beforeunload',save);
+
 let accountsTableBody = document.querySelector("#accounts-table-body");
 let allLinks = document.querySelectorAll('.nav-link');
 let accountsView = document.querySelector('#accounts-view');
@@ -14,9 +16,24 @@ let eName = document.querySelector('.eName');
 let eLastName = document.querySelector('.eLastName');
 let eEmail = document.querySelector('.eEmail');
 let ePhone = document.querySelector('.ePhone');
+let editBtn = document.querySelector('#edit');
+let id;
 
+editBtn.addEventListener('click',saveEditedAccount);
 saveBtn.addEventListener('click',saveAccount);
 
+function saveEditedAccount(){
+   const editedAccount = {
+    id : eId.value,
+    name : eName.value,
+    lastname : eLastName.value,
+    email : eEmail.value,
+    phone : ePhone.value
+  }
+  db[id] = editedAccount;
+  createAccountsTable();
+  showView("#accounts-view");
+}
 function saveAccount(){
     const newAccount = {
         id : idInput.value,
@@ -91,6 +108,16 @@ function deleteAccount(){
 }
 
 function editAccount(){
-let id = this.getAttribute('data-id');
+id = this.getAttribute('data-id');
 let selectedAccount = db[id];
+eId.value = selectedAccount.id;
+eName.value = selectedAccount.name;
+eLastName.value = selectedAccount.lastname;
+eEmail.value = selectedAccount.email;
+ePhone.value = selectedAccount.phone;
+showView("#edit-account-view");
+}
+
+function save(){
+    localStorage.db = JSON.stringify(db);
 }
