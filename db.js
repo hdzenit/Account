@@ -4,7 +4,7 @@ let db = [
         name : "danilo",
         lastname : "vesovic",
         email : "danilo@gmail.com",
-        phone : "11-11-11-111"
+        phone : "11-11-111"
 
     },
     {
@@ -12,7 +12,7 @@ let db = [
         name : "mirko",
         lastname : "mirkovic",
         email : "mirko@gmail.com",
-        phone : "22-22-22-222"
+        phone : "22-22-222"
 
     },
     {

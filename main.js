@@ -21,10 +21,14 @@ function saveAccount(){
         phone : phoneInput.value
     }
 
-    //ovdje sam stao
     db.push(newAccount);
+    idInput.value = "";
+    nameInput.value = "";
+    lastNameInput.value = "";
+    emailInput.value = "";
+    phoneInput.value ="";
     createAccountsTable();
-    showView();
+    showView("#accounts-view");
 }
 
 for (let i = 0; i < allLinks.length; i++) {
@@ -33,13 +37,16 @@ for (let i = 0; i < allLinks.length; i++) {
 }
 
 function showView(e){
-    e.preventDefault();
     for (let i = 0; i < views.length; i++) {
         views[i].style.display = "none";
-        
     }
-    let id = `#${this.getAttribute("href")}`;
-    document.querySelector(id).style.display = "block";
+    if(e instanceof Event){
+        e.preventDefault();
+        let id = `#${this.getAttribute("href")}`;
+        document.querySelector(id).style.display = "block";
+    }else{
+        document.querySelector(e).style.display = "block";
+    }
 }
 
 
