@@ -63,7 +63,26 @@ function createAccountsTable(){
         <td>${account.lastname}</td>
         <td>${account.email}</td>
         <td>${account.phone}</td>
+        <td><button data-id="${i}" class="edit-btn btn btn-sm btn-warning form-control">Edit</button></td>
+        <td><button data-id="${i}" class="delete-btn btn btn-sm btn-danger form-control">Delete</button></td>
     </tr>`
     }
     accountsTableBody.innerHTML = htmlAccounts;
+    let allDeleteBtns = document.querySelectorAll('.delete-btn');
+    let allEditBtns = document.querySelectorAll('.edit-btn');
+
+    for (let i = 0; i < allDeleteBtns.length; i++) {
+        allDeleteBtns[i].addEventListener('click', deleteAccount);
+        allEditBtns[i].addEventListener('click', editAccount);
+        
+    }
+}
+
+function deleteAccount(){
+    let id = this.getAttribute('data-id');
+    console.log(id);
+}
+
+function editAccount(){
+
 }
